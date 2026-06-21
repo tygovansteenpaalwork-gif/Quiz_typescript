@@ -1,0 +1,381 @@
+/* ================================================================
+   BESTAND    : style.css
+   BESCHRIJVING: Opmaak voor de TypeScript Quiz-applicatie.
+                 Drie schermen: intro, vraag en einde.
+                 .verborgen wordt gebruikt om schermen te tonen/
+                 verbergen via JavaScript.
+   ================================================================ */
+
+/* ---- Basisinstellingen ---- */
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Black Ops One", system-ui;
+    background-color: #46178f;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---- Header ---- */
+header {
+    background-color: #3a1278;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+}
+
+header span {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* ---- Hulpklasse: verbergt een element ---- */
+.verborgen {
+    display: none !important;
+}
+
+
+/* ================================================================
+   INTROSCHERM
+   ================================================================ */
+#scherm-intro {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* Knoppen om een quiz te kiezen */
+.quiz-keuze {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.quiz-keuze button {
+    padding: 16px 32px;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #fff;
+    color: #46178f;
+    transition: background-color 0.15s;
+}
+
+.quiz-keuze button:hover {
+    background-color: #e8e8e8;
+}
+
+/* Witte kaart met de quiztitel en startknop */
+.intro-kaart {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 40px 48px;
+    text-align: center;
+    max-width: 560px;
+    width: 100%;
+}
+
+.intro-kaart h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.intro-kaart p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 28px;
+}
+
+.knop-start {
+    background-color: #46178f;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 48px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.knop-start:hover {
+    background-color: #5a1fb5;
+}
+
+
+/* ================================================================
+   VRAAGSCHERM
+   ================================================================ */
+#scherm-vraag {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Bovenbalk met timer, timerbalk en voortgangsbalk */
+.vraag-header {
+    background-color: #3a1278;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Ronde timer-cirkel */
+.timer-cirkel {
+    background-color: #fff;
+    color: #46178f;
+    font-size: 1.2rem;
+    font-weight: 700;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Timer balk (loopt leeg naarmate de tijd verstrijkt) */
+#timer-balk-wrap {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    height: 8px;
+    overflow: hidden;
+}
+
+#timer-balk {
+    height: 100%;
+    background-color: #ffd700;
+    border-radius: 4px;
+    transition: width 0.1s linear;
+    width: 100%;
+}
+
+/* Voortgangsbalk (vult op naarmate de quiz vordert) */
+.voortgangsbalk-wrap {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    height: 8px;
+    overflow: hidden;
+}
+
+#voortgangsbalk {
+    height: 100%;
+    background-color: #26890c;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    width: 0%;
+}
+
+/* Vraagnummer-tekst */
+#vraag-nummer {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+/* Witte box met de vraagtekst */
+.vraag-box {
+    background-color: #fff;
+    margin: 20px auto;
+    padding: 28px 36px;
+    border-radius: 10px;
+    max-width: 760px;
+    width: calc(100% - 40px);
+    text-align: center;
+}
+
+#vraag-tekst {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #222;
+    line-height: 1.4;
+}
+
+/* Grid voor de antwoordknoppen */
+#antwoord-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 760px;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+/* Gedeelde opmaak voor alle antwoordknoppen */
+.antwoord-knop {
+    border: none;
+    border-radius: 10px;
+    padding: 20px 16px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    min-height: 72px;
+    transition: filter 0.1s, transform 0.1s;
+}
+
+.antwoord-knop:hover:not(:disabled) {
+    filter: brightness(1.1);
+    transform: scale(1.02);
+}
+
+.antwoord-knop:disabled {
+    cursor: not-allowed;
+}
+
+/* Kleuren voor meerkeuzeknoppen */
+.kleur-0 { background-color: #e21b3c; }
+.kleur-1 { background-color: #1368ce; }
+.kleur-2 { background-color: #d89e00; }
+.kleur-3 { background-color: #26890c; }
+
+/* Visuele terugkoppeling na het antwoorden */
+.antwoord-knop.correct {
+    outline: 4px solid #fff;
+    filter: brightness(1.2);
+}
+
+.antwoord-knop.fout {
+    filter: brightness(0.5);
+}
+
+/* Bevestigingsknop bij open vragen (neemt volledige breedte in) */
+.bevestig-knop {
+    grid-column: span 2;
+    background-color: #1a8400;
+}
+
+/* Tekstveld voor open vragen */
+.open-invoer {
+    grid-column: span 2;
+    padding: 14px 18px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+}
+
+.open-invoer:focus {
+    border-color: #46178f;
+}
+
+/* Feedbackbalk (correct / fout / tijd is op) */
+.feedback {
+    max-width: 760px;
+    width: calc(100% - 40px);
+    margin: 0 auto 16px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.feedback.goed {
+    background-color: #26890c;
+    color: #fff;
+}
+
+.feedback.fout {
+    background-color: #e21b3c;
+    color: #fff;
+}
+
+/* Knop om naar de volgende vraag te gaan */
+.knop-volgende {
+    display: block;
+    margin: 0 auto 20px;
+    background-color: #fff;
+    color: #46178f;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 40px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.knop-volgende:hover {
+    background-color: #e8e8e8;
+}
+
+
+/* ================================================================
+   EINDSCHERM
+   ================================================================ */
+#scherm-einde {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.einde-kaart {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 48px;
+    text-align: center;
+    max-width: 480px;
+    width: 100%;
+}
+
+.einde-kaart h2 {
+    font-size: 1.6rem;
+    color: #333;
+    margin-bottom: 24px;
+}
+
+/* Grote score-weergave */
+.score-groot {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #46178f;
+    line-height: 1;
+}
+
+/* Percentage onder de score */
+.score-percentage {
+    font-size: 1.4rem;
+    color: #888;
+    margin: 8px 0 32px;
+}
+
+/* Opnieuw-knop */
+.knop-opnieuw {
+    background-color: #46178f;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 48px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.knop-opnieuw:hover {
+    background-color: #5a1fb5;
+}

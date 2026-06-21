@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <span>Quiz</span>
+</header>
+
+<!-- INTROSCHERM: keuze van quiz + titelkaart -->
+<div id="scherm-intro">
+    <div class="quiz-keuze">
+        <button id="knop-hoofdsteden">Hoofdsteden</button>
+        <button id="knop-planeten">Planeten</button>
+    </div>
+    <div class="intro-kaart">
+        <h1 id="quiz-titel">Kies een quiz</h1>
+        <p id="quiz-intro-tekst">Selecteer hierboven een quiz om te beginnen.</p>
+        <button class="knop-start" id="knop-start">Start</button>
+    </div>
+</div>
+
+<!-- VRAAGSCHERM: timer, voortgang, vraag en antwoorden -->
+<div id="scherm-vraag" class="verborgen">
+    <div class="vraag-header">
+        <div class="timer-cirkel" id="timer">10</div>
+        <div id="timer-balk-wrap">
+            <div id="timer-balk"></div>
+        </div>
+        <div class="voortgangsbalk-wrap">
+            <div id="voortgangsbalk"></div>
+        </div>
+        <span id="vraag-nummer"></span>
+    </div>
+
+    <div class="vraag-box">
+        <p id="vraag-tekst"></p>
+    </div>
+
+    <div id="antwoord-container"></div>
+
+    <div id="feedback" class="verborgen"></div>
+
+    <button class="knop-volgende verborgen" id="knop-volgende">Volgende →</button>
+</div>
+
+<!-- EINDSCHERM: score en opnieuw-knop -->
+<div id="scherm-einde" class="verborgen">
+    <div class="einde-kaart">
+        <h2>Resultaat</h2>
+        <div class="score-groot" id="eind-score"></div>
+        <div class="score-percentage" id="eind-percentage"></div>
+        <button class="knop-opnieuw" id="knop-opnieuw">Opnieuw spelen</button>
+    </div>
+</div>
+
+<!-- quiz.js is de gecompileerde versie van quiz.ts -->
+<script src="quiz.js"></script>
+</body>
+</html>

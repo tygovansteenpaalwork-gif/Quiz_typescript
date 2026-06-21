@@ -1,0 +1,44 @@
+{
+    "intro": {
+        "title": "Planeten quiz",
+        "text": "Welkom bij de planeten quiz. Je krijgt hier een aantal vragen over de planeten in ons zonnestelsel" 
+    },
+    "questions": [
+        { "type": "MULTIPLECHOICE",
+          "time": 6000,
+          "question": "Wat is naam van de planeet die het dichtste bij de zon staat?",
+          "answers": [
+            "Venus",
+            "Mars",
+            "Mercurius",
+            "Neptunus"
+          ],
+          "correctAnswer": 2  
+        },
+        { "type": "Open",
+          "time": 10000,
+          "question": "Wat is de grootste planeet van ons zonnestelsel?",
+          "answers": [
+            "Jupiter"
+          ]  
+        },
+        { "type": "Open",
+          "time": 8000,
+          "question": "Hoeveel planeten heeft ons zonnestelsel?",
+          "answers": [
+            "9"
+          ]  
+        },
+        { "type": "MULTIPLECHOICE",
+          "time": 6000,
+          "question": "Wat is de naam van de planeet die 1 stap verder van de zon staat dan de aarde?",
+          "answers": [
+            "Mars",
+            "Mercurius",
+            "Venus",
+            "Uranus"
+          ],
+          "correctAnswer": 0  
+        }
+    ]
+}
